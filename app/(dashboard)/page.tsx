@@ -1,19 +1,16 @@
 "use client";
 
-import { useGetAccounts } from "@/features/accounts/api/use-get-accounts";
+import { Button } from "@/components/ui/button";
+import { useNewAccount } from "@/features/accounts/hooks/use-new-accounts";
 
 export default function Home() {
-  return <div>Home</div>;
+  const { onOpen } = useNewAccount();
 
-  // const { data: accounts, isLoading } = useGetAccounts();
-
-  // if (isLoading) {
-  //   return <div>Carregando...</div>;
-  // }
-
-  // return (
-  //   <div>
-  //     {accounts?.map((account) => <div key={account.id}>{account.name}</div>)}
-  //   </div>
-  // );
+  return (
+    <>
+      <div>
+        <Button onClick={onOpen}>Adicionar conta</Button>
+      </div>
+    </>
+  );
 }
