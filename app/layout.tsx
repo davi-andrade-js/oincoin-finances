@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
+import "./globals.css";
+
 import {
   ClerkProvider,
   SignInButton,
@@ -7,10 +7,13 @@ import {
   SignedOut,
   UserButton,
 } from "@clerk/nextjs";
-import "./globals.css";
-import { ptBR } from "@clerk/localizations";
+
+import type { Metadata } from "next";
 import { QueryProvider } from "@/providers/query-provider";
 import { SheetProvider } from "@/providers/sheet-provider";
+import { Toaster } from "@/components/ui/sonner";
+import localFont from "next/font/local";
+import { ptBR } from "@clerk/localizations";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -41,6 +44,7 @@ export default function RootLayout({
         >
           <QueryProvider>
             <SheetProvider />
+            <Toaster />
             {children}
           </QueryProvider>
         </body>
